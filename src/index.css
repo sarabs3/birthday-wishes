@@ -2,4 +2,35 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background:radial-gradient(#fa943a, #d35400);
+}
+.App{
+  display: flex;
+  justify-content: center;
+  width: 550px;
+  margin: 0 auto;
+  align-items: center;
+  text-align: center; 
+  height: 100vh;
+}
+.App-title{
+  font-family:  -apple-system, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  text-shadow: 0 5px 15px rgba(0,0,0,.15);
+  font-size: 32px;
+  color: #fff;
+  line-height: 40px;
+}
+.getNew {
+  background: transparent;
+  border: 3px solid #fff;
+  padding: 10px 20px;
+  font-size: 20px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.getNew:hover{
+  background: rgba(255,255,255,0.2);
+}
+.toolbar img:hover{
+  background: rgba(255,255,255,0.3);
 }
