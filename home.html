@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+        <style>
+            body{
+                background-color: #b9c6cc;
+                margin: 0;
+            }
+            .list{
+                display: flex;
+                margin-top: 600px;
+                justify-content: space-evenly;
+                width: 100vw;
+                text-transform: uppercase;
+                font-size: 14px;
+                font-family:Arial, Helvetica, sans-serif;
+                font-weight: 600;
+            }
+            .list a {
+                transition: 0.3s;
+                cursor: pointer;
+                color: white;
+                text-decoration: none;
+            }
+            .list a:hover{
+                text-shadow: 4px 4px 8px rgba(0,0,0,0.3);
+            }
+            section{
+                height: 650px;
+                width: 100vw;
+            }
+        </style>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div class="list">
+            <a href="#elite">Elite</a>
+            <a href="#saint">Saint</a>
+            <a href="#prist">Prist</a>
+            <a href="#noble">Noble</a>
+            <a href="#culprit">Culprit</a>
+        </div>
+        <section id="elite">1</section>
+        <section id="saint">2</section>
+        <section id="prist">3</section>
+        <section id="noble">4</section>
+        <section id="culprit">5</section>
+        <script>
+
+// Select all links with hashes
+$('a[href*="#"]')
+  // Remove links that don't actually link to anything
+  .not('[href="#"]')
+  .not('[href="#0"]')
+  .click(function(event) {
+    // On-page links
+    if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
+      && 
+      location.hostname == this.hostname
+    ) {
+      // Figure out element to scroll to
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      // Does a scroll target exist?
+      if (target.length) {
+        // Only prevent default if animation is actually gonna happen
+        event.preventDefault();
+        $('html, body').animate({
+          scrollTop: target.offset().top
+        }, 1000, function() {
+          // Callback after animation
+          // Must change focus!
+          var $target = $(target);
+          $target.focus();
+          if ($target.is(":focus")) { // Checking if the target was focused
+            return false;
+          } else {
+            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+            $target.focus(); // Set focus again
+          };
+        });
+      }
+    }
+  });        </script>
+    </body>
+</html>
